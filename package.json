@@ -38,15 +38,7 @@
         "canvas",
         "svg"
     ],
-    "author": "Marc Brooks <idisposable@gmail.com>",
-    "contributors": [
-        "Anatolii Saienko <anatoly.sayenko@gmail.com>",
-        "Marc Brooks <idisposable@gmail.com>",
-        "Daniel Fischer <daniel.fischer@iqdoq.de>",
-        "Aidas Klimas",
-        "Edgardo Di Gesto",
-        "樊冬 Fan Dong <CG-man@outlook.com>"
-    ],
+    "author": "Anatolii Saienko <anatoly.sayenko@gmail.com>",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/tsayen/dom-to-image/issues"
