@@ -1,6 +1,6 @@
 # DOM to Image
 
-[![Build Status](https://travis-ci.org/1904labs/dom-to-image.svg?branch=master)](https://travis-ci.org/1904labs/dom-to-image)
+[![Build Status](https://travis-ci.org/tsayen/dom-to-image.svg?branch=master)](https://travis-ci.org/tsayen/dom-to-image)
 
 ## What is it
 
@@ -14,7 +14,7 @@ Anatolii's version was based on [domvas by Paul Bakaus](https://github.com/pbaka
 and has been completely rewritten, with some bugs fixed and some new
 features (like web font and image support) added.
 
-Moved to [1904labs organization](https://github.com/1904labs/) from my repositories 2019-02-06 as of version 2.7.3
+Moved to [tsayen organization](https://github.com/tsayen/) from my repositories 2019-02-06 as of version 2.7.3
 
 ## Installation
 

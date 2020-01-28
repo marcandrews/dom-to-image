@@ -27,7 +27,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/1904labs/dom-to-image.git"
+        "url": "git+https://github.com/tsayen/dom-to-image.git"
     },
     "keywords": [
         "dom",
@@ -49,7 +49,7 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/1904labs/dom-to-image/issues"
+        "url": "https://github.com/tsayen/dom-to-image/issues"
     },
-    "homepage": "https://github.com/1904labs/dom-to-image#readme"
+    "homepage": "https://github.com/tsayen/dom-to-image#readme"
 }
