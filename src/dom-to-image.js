@@ -737,7 +737,7 @@
                                 .then(setBaseHref(sheet.href))
                                 .then(toStyleSheet)
                                 .catch(function(err) {
-                                    return document.createElement('style').sheet
+                                    return sheet
                                 });
                         } else {
                             return Promise.resolve(sheet);
@@ -798,7 +798,7 @@
 
                 function toStyleSheet(text) {
                     var doc = document.implementation.createHTMLDocument('');
-                    var styleElement = document.createElement('style');
+                    var styleElement = doc.createElement('style');
 
                     styleElement.textContent = text;
                     doc.body.appendChild(styleElement);
