@@ -732,11 +732,13 @@
                 return Promise.all(
                     styleSheets.map(function (sheet) {
                         if (sheet.href) {
-							// Fix issue when chrome save file request in cache with out Access-Control-Allow-Origin:* header so it throw Cors error
-							return fetch(sheet.href + (sheet.href.indexOf('?') === -1 ? '?' : '&') + "timestamp=" + new Date().getTime())
+							return fetch(sheet.href, { mode: 'no-cors'})
                                 .then(toText)
                                 .then(setBaseHref(sheet.href))
-                                .then(toStyleSheet);
+                                .then(toStyleSheet)
+                                .catch(function(err) {
+                                    return sheet
+                                });
                         } else {
                             return Promise.resolve(sheet);
                         }
@@ -744,6 +746,9 @@
                 )
 
                 function toText(response) {
+                    if (!response.ok) {
+                        throw new Error('Failed to retrieve external stylesheet')
+                    }
                     return response.text();
                 }
 
@@ -793,7 +798,7 @@
 
                 function toStyleSheet(text) {
                     var doc = document.implementation.createHTMLDocument('');
-                    var styleElement = document.createElement('style');
+                    var styleElement = doc.createElement('style');
 
                     styleElement.textContent = text;
                     doc.body.appendChild(styleElement);
@@ -804,15 +809,16 @@
 
             function getCssRules(styleSheets) {
                 var cssRules = [];
+
                 styleSheets.forEach(function(sheet) {
-                    if ("cssRules" in sheet) {
-                        try {
+                    try {
+                        if (sheet && "cssRules" in sheet) {
                             util.asArray(sheet.cssRules || []).forEach(function(cssRule) {
                                 cssRules.push(cssRule)
                             });
-                        } catch (e) {
-                            console.log('Error while reading CSS rules from ' + sheet.href, e.toString());
                         }
+                    } catch (e) {
+                        console.log('Error while reading CSS rules from ' + sheet.href, e.toString());
                     }
                 });
                 return cssRules;
